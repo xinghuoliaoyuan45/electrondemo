@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+        <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+        <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>这是我第一个pc程序</h1>
+
+    <div class="container">
+        <h2>多种颜色的进度条</h2>
+        <p>Bootstrap4 提供了以下几种进度条颜色:</p>
+        <div class="progress">
+            <div class="progress-bar" style="width:30%"></div>
+        </div>
+        <br>
+        <div class="progress">
+            <div class="progress-bar bg-success" style="width:40%"></div>
+        </div>
+        <br>
+        <div class="progress">
+            <div class="progress-bar bg-info" style="width:50%"></div>
+        </div>
+        <br>
+        <div class="progress">
+            <div class="progress-bar bg-warning" style="width:60%"></div>
+        </div>
+        <br>
+        <div class="progress">
+            <div class="progress-bar bg-danger" style="width:70%"></div>
+        </div>
+    </div>
+
+    <div id="reactjs">reactjs</div>
+    <div id="purejs">purejs</div>
+
+    <div id='vuejs'>{{ message }}</div>
+    <div id="jqueryjs">jqueryjs</div>
+
+
+
+    <script type="text/babel">
+      ReactDOM.render(
+              <h1>Hello, react!</h1>,
+        document.getElementById('reactjs')
+      );
+      function purejsFunction(){
+        document.getElementById("purejs").innerHTML="Hello Purejs";
+      }
+      $(document).ready(function(){
+        $("#jqueryid").click(function(){
+          $("#jqueryjs").html("hello jqueryjs");
+        });
+      });
+      function vuejsFunction(){
+        var app = new Vue({
+          el: '#vuejs',
+          data: {
+            message: 'Hello Vue!'
+          }
+        })
+      }
+      require('./renderer.js')
+    </script>
+    <button onclick="purejsFunction()">purejs点我</button>
+    <button onclick="vuejsFunction()">vuejs点我</button>
+    <button id="jqueryid">jqueryjs点我</button>
+  </body>
+</html>
